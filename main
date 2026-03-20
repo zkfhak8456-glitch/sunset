@@ -36,4 +36,4 @@ async def on_message(message):
         menu = random.choice(menus)
         await message.channel.send(menu)
 
-client.run('MTQ4NDM2NTU0MjMwNjQ4MDEzOQ.Gu5Ow5.okdKUJphzKcikcRx7OFUIlAtIIen8GPPZHX77E')
+client.run('MTQ4NDM2NTU0MjMwNjQ4MDEzOQ.GU-u9X.I1dpM-mgbQfeMqlqLtuhogEmYW0PytG58Xi7pU')
