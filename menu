@@ -1,8 +1,11 @@
+</>Python
+
 import discord
+import random
+import os
 
-intents = discord.intents.all()
-client = discord.Client()
-
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
 @client.event
 async def on_message(message):
     list = ['불고기','육회','김치찌개','된장찌개','제육볶음','삼겹살','치킨','피자','햄버거','파스타',
@@ -22,9 +25,17 @@ async def on_message(message):
 '열무국수','비빔국수','잔치국수','냉모밀','크림파스타','로제파스타','알리오올리오','봉골레파스타','투움바파스타','라자냐',
 '치즈피자','페퍼로니피자','고르곤졸라피자','불고기피자','하와이안피자','치즈버거','베이컨버거','더블버거','새우버거','치킨버거',
 '클럽샌드위치','에그샌드위치','BLT샌드위치','프렌치토스트','와플']
-    menu = random.choice(list)
-#    print(menu)
+@client.event
+async def on_ready():
+    print(f'{client.user} 로그인 완료!')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
     if message.content.startswith("!메뉴"):
-        await client.send_message(message.channel, menu)
+        menu = random.choice(menus)
+        await message.channel.send(menu)
 
 client.run('MTQ4NDM2NTU0MjMwNjQ4MDEzOQ.Gu5Ow5.okdKUJphzKcikcRx7OFUIlAtIIen8GPPZHX77E')
