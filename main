@@ -2,10 +2,11 @@ import discord
 import random
 import os
 
-intents = discord.Intents.all()
+intents = discord.Intents.default()
+intents.message_content = True
+
 client = discord.Client(intents=intents)
-@client.event
-async def on_message(message):
+
 menus = ['불고기','육회','김치찌개','된장찌개','제육볶음','삼겹살','치킨','피자','햄버거','파스타',
 '초밥','라멘','쌀국수','칼국수','비빔밥','순두부찌개','갈비탕','설렁탕','곰탕','닭갈비',
 '닭볶음탕','찜닭','오징어볶음','낙지볶음','쭈꾸미볶음','감자탕','부대찌개','샤브샤브','훠궈','마라탕',
@@ -36,4 +37,4 @@ async def on_message(message):
         menu = random.choice(menus)
         await message.channel.send(menu)
 
-client.run(os.getenv("MTQ4NDM2NTU0MjMwNjQ4MDEzOQ.Gcd3z3.ab4kGnmVcnujIiNDUoW0Y05WOiVYxClWy_5OFE"))
+client.run(os.getenv("TOKEN"))
