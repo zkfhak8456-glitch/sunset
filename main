@@ -34,7 +34,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith("!메뉴"):
+    if message.content.startswith("!메뉴","!추천"):
         menu = random.choice(menus)
         await message.channel.send(menu)
 
