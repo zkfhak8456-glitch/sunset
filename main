@@ -1,6 +1,7 @@
 import discord
 import random
 import os
+import asyncio
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -38,3 +39,4 @@ async def on_message(message):
         await message.channel.send(menu)
 
 client.run(os.getenv("TOKEN"))
+asyncio.get_event_loop().run_forever()
